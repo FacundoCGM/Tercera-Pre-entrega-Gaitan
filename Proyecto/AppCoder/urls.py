@@ -5,14 +5,6 @@ from . import views
 from AppCoder.views import *
 
 urlpatterns = [
-    path('', views.inicio, name="Inicio"), 
-    path('login', Login.as_view(), name="Login"),
-    path('registrate', Registrate.as_view(), name="Registrate"),
-    path('logout', LogoutView.as_view(template_name='AppCoder/logout.html'), name='Logout'),
-    path('editarUsuario', EditarUsuario.as_view(), name='EditarUsuario'),
-    path('perfil', views.perfil, name="Perfil"),
-    path('editarContra', CambioPassword.as_view(), name='EditarContra'),
-    path('edicionContraCorrecto' , views.edicionContraCorrecto, name='EdicionContraCorrecto'),
 
     path('blogs', Blogs.as_view(), name="Blogs"),
     path('nuevo', Nuevo.as_view(), name="Nuevo"),
