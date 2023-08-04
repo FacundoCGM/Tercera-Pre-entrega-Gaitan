@@ -1,24 +1,25 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Curso(models.Model):
 
-    nombre=models.CharField(max_length=40)
-    camada = models.IntegerField()
+class NuevoBlog(models.Model):
+    tematica = (
+    ('politica','Politica'),
+    ('deportes', 'Deportes'),
+    ('naturaleza','Naturaleza'),
+    ('otro', 'Otro'),
+    )
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    titulo = models.CharField(max_length=200)
+    tematica = models.CharField(max_length=15, choices=tematica, default='politica')
+    texto = models.TextField(null=True, blank=True)
+    fechaPublicacion = models.DateTimeField(auto_now_add=True)
+    emailContacto = models.EmailField()
+    imagenBlog = models.ImageField(null=True, blank=True, upload_to="media/imagenesBlog")
 
+    class Meta:
+        ordering = ['usuario', '-fechaPublicacion']
 
-class Estudiante(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
-
-class Profesor(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
-    profesion= models.CharField(max_length=30)
-
-class Entregable(models.Model):
-    nombre= models.CharField(max_length=30)
-    fechaDeEntrega = models.DateField()  
-    entregado = models.BooleanField()
+    def __str__(self):
+        return self.titulo

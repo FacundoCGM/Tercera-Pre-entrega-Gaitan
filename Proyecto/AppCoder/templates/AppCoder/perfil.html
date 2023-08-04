@@ -1,0 +1,13 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div class="container" style="display: grid; place-content: center;">
+    <h1>{{request.user.username}}</h1>
+    <br>
+    <br>
+    <a href="{% url 'EditarUsuario' %}">Editar mi perfil.</a>
+    <a href="{% url 'EditarContra' %}">Editar mi Contraseña.</a>
+</div>
+
+{% endblock %}

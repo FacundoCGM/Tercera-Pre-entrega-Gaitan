@@ -1,0 +1,17 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div class="container" style="display: grid; place-content: center;">
+
+    <h1>{{blog.titulo}}</h1>
+    
+    <img src="{{blog.imagenBlog.url}}" class="" width="300px" height="300px">
+    <h4>tematica: {{blog.tematica}}</h4>
+    <p>contenido: {{blog.texto}}</p>
+    <p>Fecha de publiación: {{blog.fechaPublicacion}}</p>
+    <p>Email de Contacto: {{blog.emailContacto}}</p>
+    
+    </div>
+
+{% endblock %}

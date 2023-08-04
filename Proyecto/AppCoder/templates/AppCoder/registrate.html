@@ -1,0 +1,21 @@
+{% extends "AppCoder/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+<div class="container text-center">
+    <h1>Registrate!</h1>
+</div>
+
+<div class="container">
+    <div class="form-group">
+    <form style=" width: 50vw; margin-left : 15vw;" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="container text-center">
+        <button type="submit" class="btn btn-primary">Registrar nuevo usuario</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+{% endblock %}
